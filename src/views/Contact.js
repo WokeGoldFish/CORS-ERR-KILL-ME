@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import ContactPost from '../components/ContactPost'
 
 export default class Contact extends Component {
     constructor() {
@@ -10,9 +10,7 @@ export default class Contact extends Component {
     }
 
 componentDidMount =  async () => {
-    const res = await fetch('https://shohablog-django.herokuapp.com/api/', {
-        mode: 'same-origin',
-      });
+    const res = await fetch('https://shohablog-django.herokuapp.com/api/')
     console.log(res)
     const data = await res.json();
     
@@ -30,7 +28,7 @@ componentDidMount =  async () => {
     render() {
     return (
       <div>
-          {this.state.contacts.map((c, i) => <Contact c ={c} key = {i}/>)}
+          {this.state.contacts.map((c, i) => <ContactPost key={i} c={c} />)}
 
       </div>
     )

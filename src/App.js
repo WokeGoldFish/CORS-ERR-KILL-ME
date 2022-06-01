@@ -4,9 +4,9 @@ import NavBar from './components/NavBar'
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Home from './views/Home';
-import About from './views/About';
+import ToDo from './views/ToDo';
 import Contact from './views/Contact';
-
+import NewContact from './views/NewContact';
 
 
 export default class App extends Component {
@@ -19,8 +19,9 @@ export default class App extends Component {
             <Routes>
 
               <Route path='/' element={<Home/>} />
-              <Route path='/about' element={<About/>}/>
+              <Route path='/todo' element={<ToDo/>}/>
               <Route path='/contact' element={<Contact/>}/>
+              <Route path='/NewContact' element={<NewContact/>}/>
               <Route path='/other' element={<h1> other </h1>}/>
 
 
