@@ -18,7 +18,7 @@ export default function Cart() {
     useEffect (() => {getPosts()},[])
     
     return (
-        <div className='d-flex justify-content-center '>
+        <div className='column flex-basis'>
             {posts.map((p, i) => <Product key ={i} post={p} index={i}/> )}
         </div>
   )
