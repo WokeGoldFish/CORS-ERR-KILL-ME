@@ -27,7 +27,7 @@ export default class NavBar extends Component {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <Link className="nav-link" to="/">
-                Home <span className="sr-only"></span>
+                News <span className="sr-only"></span>
               </Link>
             </li>
             <li className="nav-item">
@@ -44,7 +44,13 @@ export default class NavBar extends Component {
               <Link className="nav-link" to="/NewContact">
                 New Contact <span className="sr-only"></span>
               </Link>
-            </li></ul>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/cart">
+                Cart<span className="sr-only"></span>
+              </Link>
+            </li>
+            </ul>
           </form>
         </div>
       </nav>
