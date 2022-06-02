@@ -18,8 +18,10 @@ export default function Cart() {
     useEffect (() => {getPosts()},[])
     
     return (
-        <div className='column flex-basis'>
+        <div className='container'>
+            <div className='row mx-auto col-4'>
             {posts.map((p, i) => <Product key ={i} post={p} index={i}/> )}
+        </div>
         </div>
   )
 }
