@@ -5,8 +5,7 @@ export default function Product({ post }) {
   return (
     <Link
       to={`/cart/${post.id}`}
-      className="card text-dark-class text-decoration-none"
-      
+      className="card" className='row'
     >
       <img className="card-img-top" src={post.picture} alt="Card image cap" />
       <div className="card-body">
