@@ -1,27 +1,35 @@
-import React, {useState, useEffect} from 'react'
-import Product from '../components/Product'
+import React from "react";
 
-
-export default function Cart() {
-
-    const [posts, setPosts] = useState([])
-
-    const getPosts = async() => {
-        const res = await fetch('http://127.0.0.1:8000/api/posts/')
-        const data = await res.json()
-        console.log(data)
-        if (data.status === 'ok') {
-            setPosts(data.posts)
-        }
-    }
-    
-    useEffect (() => {getPosts()},[])
-    
-    return (
-        <div className='container'>
-            <div className='row mx-auto col-4'>
-            {posts.map((p, i) => <Product key ={i} post={p} index={i}/> )}
+export default function Cart({ cartItems }) {
+  console.log(cartItems);
+  return (
+    <>
+      <h5>This is your Cart</h5>
+      <div>{cartItems.length === 0 && <h6> Cart is Empty</h6>} </div>
+      {cartItems.map((post) => (
+        <div className="container">
+          <div className="row mx-auto">
+            <div key={post.id}
+              className="card text-dark-class col-12 col-lg-4"
+              style={{ width: "10rem" }}>
+              <img className="card-img-top" src={post.picture} />
+              <div>{post.name}</div>
+              <div>{post.price}</div>
+            </div>
+          </div>
         </div>
+      ))}
+
+      {/* <div
+        className="card text-dark-class text-decoration-none container"
+        style={{ width: "40rem" }}
+      >
+        <img className="card-img-top" src={post.picture} />
+        <div className="card-body">
+          <h5 className="card-title">{post.name}</h5>
+          <p>{post.price}</p>
         </div>
-  )
+      </div> */}
+    </>
+  );
 }
