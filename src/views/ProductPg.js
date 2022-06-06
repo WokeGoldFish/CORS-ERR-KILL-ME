@@ -15,7 +15,9 @@ export default function ProductPg() {
         }
     }
     
-    useEffect (() => {getPosts()},[])
+    useEffect (() => {
+        getPosts()
+    },[])
     
     return (
         <div className='container'>

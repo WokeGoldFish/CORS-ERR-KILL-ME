@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Post extends Component {
   render() {
     return (
-      <div className="card" style= {{width: "15rem"}}>
+      <div className="card" style= {{width: "45rem"}}>
         <img
           className="card-img-top"
           src={this.props.p.img}

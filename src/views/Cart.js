@@ -5,13 +5,13 @@ export default function Cart({ cartItems }) {
   return (
     <>
       <h5>This is your Cart</h5>
-      <div>{cartItems.length === 0 && <h6> Cart is Empty</h6>} </div>
+      <div>{cartItems.length === 0 && <h6>Don't Be Cheap -- Buy my Stuff</h6>} </div>
       {cartItems.map((post) => (
         <div className="container">
-          <div className="row mx-auto">
+          <div className="row justify-content-center">
             <div key={post.id}
-              className="card text-dark-class col-12 col-lg-4"
-              style={{ width: "10rem" }}>
+              className="card text-dark-class"
+              style={{ width: "100rem" }}>
               <img className="card-img-top" src={post.picture} />
               <div>{post.name}</div>
               <div>{post.price}</div>
@@ -20,16 +20,7 @@ export default function Cart({ cartItems }) {
         </div>
       ))}
 
-      {/* <div
-        className="card text-dark-class text-decoration-none container"
-        style={{ width: "40rem" }}
-      >
-        <img className="card-img-top" src={post.picture} />
-        <div className="card-body">
-          <h5 className="card-title">{post.name}</h5>
-          <p>{post.price}</p>
-        </div>
-      </div> */}
+      
     </>
   );
 }
