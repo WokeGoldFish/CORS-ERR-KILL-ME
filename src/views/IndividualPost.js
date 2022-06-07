@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function IndividualPost(props) {
   const [post, setPost] = useState({});
-  
-  const {setCartItems} = props
-
+  const { setCartItems } = props
   const { post_id } = useParams();
+
+
+  const [likes, setLikes] = useState(0);
+  
+  const [review, setReview] = useState('')
+
 
   const getPost = async () => {
     const res = await fetch(`http://127.0.0.1:8000/api/posts/${post_id}`);
@@ -23,15 +27,19 @@ export default function IndividualPost(props) {
     })
   }
 
-
-
+  const addReview = async () => {
+    let xReview = {
+      
+      review: review
+    }
+  }
 
 
 
   useEffect(() => {
     getPost();
   }, []);
-  
+
   return (
     <>
       <div
@@ -45,9 +53,40 @@ export default function IndividualPost(props) {
         </div>
       </div>
       <div className="container d-flex justify-content-center">
-        <button className="btn btn-primary mx-5 my-5" onClick = {() => {addItemToCart(post)}}> Add to Cart </button>
-        <button className="btn btn-danger mx-5 my-5" onClick > Go Back </button>
+        <Link to={`/cart`} className="btn btn-primary mx-1 my-1" onClick={() => { addItemToCart(post) }}> Add to Cart </Link>
       </div>
+
+      <div className="container ">
+        <div className="row">
+          <div className="d-flex justify-content-center ">
+            <h2 className={likes >= 0 ? 'positive' : 'negative'}>{likes}</h2>
+          </div>
+          <div className="row">
+            <div className=" d-flex button justify-content-center ">
+              <button className="btn btn-danger mx-4 my-1" onClick={() => setLikes(likes - 1)}>Dislike</button>
+              <button className="btn btn-success my-1" onClick={() => setLikes(likes + 1)}>Big Fan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <form>
+        <div className="container justify-content-center">
+          <div classname="form-group row mb-3">
+            <label htmlfor="comment">Review</label>
+            <textarea class="form-control" id="review" rows="3" value={review} onSubmit={(e) => addReview(e.target.value)} ></textarea>
+          </div>
+
+
+
+          <button type ="submit" className="btn btn-success">Submit</button>
+        </div>
+      </form>
+
+
+
     </>
   );
 }

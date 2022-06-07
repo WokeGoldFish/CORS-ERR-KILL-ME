@@ -8,6 +8,7 @@ export default function Product({ post }) {
       <div className="card-body">
         <h5 className="card-title">{post.name}</h5>
         <p>{post.price}</p>
+        
       </div>
     </Link>
   );
